@@ -16,7 +16,7 @@ namespace BetterFriendlyFire
         {
             var data = new BFFEventManager.GrenadeThrowData()
             {
-                team = __instance.NetworkthrowerTeam,
+                team = __instance.throwerTeam,
                 Userid = __instance.thrower.GetComponent<ReferenceHub>().GetUserId()
             };
             BFFEventManager.grenades = (data);
