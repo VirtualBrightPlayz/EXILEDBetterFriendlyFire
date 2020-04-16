@@ -147,6 +147,8 @@ namespace BetterFriendlyFire
                 {
                     teamKills.Add(attacker.GetUserId(), 0);
                 }
+                if (!teamKillTimers.ContainsKey(attacker.GetUserId()))
+                    teamKillTimers.Add(attacker.GetUserId(), 0f);
                 var curtks = teamKills[attacker.GetUserId()];
                 if (team == Team.RIP || Time.timeSinceLevelLoad - teamKillTimers[attacker.GetUserId()] <= plugin.TKInterval || scpNear || inElevator || IsTeamSquadNearby(player, team, target, plugin.maxTeamDist))
                 {
@@ -170,6 +172,8 @@ namespace BetterFriendlyFire
                 {
                     teamKills[attacker.GetUserId()]++;
                     attacker.Broadcast(3, "Teamkills Left: " + (plugin.maxTK - (curtks + 1)), false);
+                    if (!teamKillTimers.ContainsKey(attacker.GetUserId()))
+                        teamKillTimers.Add(attacker.GetUserId(), Time.timeSinceLevelLoad);
                     teamKillTimers[attacker.GetUserId()] = Time.timeSinceLevelLoad;
                     var data = new TeamKillCoolDown()
                     {
