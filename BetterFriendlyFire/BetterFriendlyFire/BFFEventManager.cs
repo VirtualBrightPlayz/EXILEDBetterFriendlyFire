@@ -137,8 +137,8 @@ namespace BetterFriendlyFire
                 SetAmountZero(ref ev);
                 return;
             }
-            bool ntf = (target == Team.MTF || target == Team.RSC) && (team == Team.MTF || team == Team.RSC);
-            bool ci = (target == Team.CHI || target == Team.CDP) && (team == Team.CHI || team == Team.CDP);
+            bool ntf = (target == Team.MTF || target == Team.RSC || ((target == Team.CHI || target == Team.CDP) && player.IsHandCuffed())) && (team == Team.MTF || team == Team.RSC);
+            bool ci = (target == Team.CHI || target == Team.CDP || ((target == Team.MTF || target == Team.RSC) && player.IsHandCuffed())) && (team == Team.CHI || team == Team.CDP);
             bool scpNear = plugin.useScpNear ? IsScpNearby(player, plugin.maxScpDist) : false;
             bool inElevator = plugin.useInElevator ? IsNearElevator(player, 20f) : false;
             if ((ntf || ci))
