@@ -1,5 +1,7 @@
 # EXILEDBetterFriendlyFire
 
+## Use https://github.com/aka00pikachu/TKLimit instead of this. It offers more configs and features!
+
 A plugin with Reasonable Friendly Fire in mind for SCP:SL servers.
 
 ## Configs and default values
